@@ -127,6 +127,10 @@ public class Lab1Appocalipsis {
                 }
                 case "3":
                 {
+                    System.out.println("Elija su palabra a buscar: ");
+                    String palabra = sc.nextLine();
+                    
+                    
                     break;
 
                 }
