@@ -7,9 +7,13 @@ package pe.pucp.edu.telecom.entity;
 
 import com.opencsv.CSVReader;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import pe.pucp.edu.telecom.entity.base.Usuario;
 import pe.pucp.edu.telecom.manager.DirectorioTelefonico;
@@ -191,11 +195,122 @@ public class Lab1Appocalipsis {
                 }
                 case "3":
                 {
+                    System.out.println("Elija su palabra a buscar: ");
+                    String palabra = sc.nextLine();
+                    ArrayList<Usuario> resultados = new ArrayList<>();
+                    for(Usuario i : dt.getLista())
+                    {
+                        if (i.getNombre().contains(palabra) || i.getApellido().contains(palabra))
+                        {
+                            resultados.add(i);
+                        }
+                    }
+                    
+                    //Ordenar la lista
+                    
+                    for(Usuario i : resultados)
+                    {
+                        System.out.println(i.getNombre() + " " +i.getApellido());
+                    }
+                    
+                    System.out.println("¿Desea exportar su busqueda? (S/N)");
+                    String aux = sc.nextLine();
+                    if(aux.equalsIgnoreCase("S"))
+                    {
+                        try (FileWriter writer = new FileWriter("busqueda.csv"))
+                    {
+                        BufferedWriter bf = new BufferedWriter(writer);
+                        for (Usuario i : resultados) 
+                        {
+                            String clase = i.getClass().getSimpleName();
+                            bf.write(clase);
+                            bf.write(",");
+                            bf.write(i.getCodigo());
+                            bf.write(",");
+                            bf.write(i.getNombre());
+                            bf.write(",");
+                            bf.write(i.getApellido());
+                            bf.write(",");
+                            bf.write(i.getTelefono());
+                            bf.write(",");
+                            bf.write(i.getAnexo());
+                            bf.write(",");
+                            bf.write(i.getDepartamento());
+                            bf.write(",");
+                            if (i.getClass().getSimpleName().equalsIgnoreCase("profesor"))
+                            {
+                                Profesor p = (Profesor) i;
+                                bf.write(p.getFacultad());
+                            } else if(i.getClass().getSimpleName().equalsIgnoreCase("JefeDePractica"))
+                            {
+                                JefeDePractica jp = (JefeDePractica) i;
+                                bf.write(jp.getEgreso());
+                            }
+                            else if(i.getClass().getSimpleName().equalsIgnoreCase("JefeDePractica"))
+                            {
+                                Instructor ins = (Instructor) i;
+                                bf.write(ins.getCiclo());
+                            }
+                            else
+                            {
+                                Administrativo admin = (Administrativo) i;
+                                bf.write(admin.getCargo());
+                            }                             
+                        }
+                        bf.close();
+                    } 
+                    }
+                    
                     break;
 
                 }
                 case "4":
                 {
+                    try (FileWriter writer = new FileWriter("escritura.csv"))
+                    {
+                        BufferedWriter bf = new BufferedWriter(writer);
+                        for (Usuario i : dt.getLista()) 
+                        {
+                            String clase = i.getClass().getSimpleName();
+                            bf.write(clase);
+                            bf.write(",");
+                            bf.write(i.getCodigo());
+                            bf.write(",");
+                            bf.write(i.getNombre());
+                            bf.write(",");
+                            bf.write(i.getApellido());
+                            bf.write(",");
+                            bf.write(i.getTelefono());
+                            bf.write(",");
+                            bf.write(i.getAnexo());
+                            bf.write(",");
+                            bf.write(i.getDepartamento());
+                            bf.write(",");
+                            if (i.getClass().getSimpleName().equalsIgnoreCase("profesor"))
+                            {
+                                Profesor p = (Profesor) i;
+                                bf.write(p.getFacultad());
+                            } else if(i.getClass().getSimpleName().equalsIgnoreCase("JefeDePractica"))
+                            {
+                                JefeDePractica jp = (JefeDePractica) i;
+                                bf.write(jp.getEgreso());
+                            }
+                            else if(i.getClass().getSimpleName().equalsIgnoreCase("JefeDePractica"))
+                            {
+                                Instructor ins = (Instructor) i;
+                                bf.write(ins.getCiclo());
+                            }
+                            else
+                            {
+                                Administrativo admin = (Administrativo) i;
+                                bf.write(admin.getCargo());
+                            }                             
+                        }
+                        bf.close();
+                    } 
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 }
                 case "5":
