@@ -51,15 +51,55 @@ public class Lab1Appocalipsis {
                        BufferedReader br = null;
 
                        try {
-
-                          br =new BufferedReader(new FileReader("C:\\Users\\a2015\\Documents\\NetBeansProjects\\Lab1_AppMoviles\\csv\\directorio_pucp.csv"));
+                           
+                          System.out.println("Ingrese la dirección del archivo :");
+                          String ruta = sc.nextLine();
+                          br =new BufferedReader(new FileReader(ruta));
                           String line = br.readLine();
                           while (null!=line) {
                              String [] fields = line.split(SEPARATOR);
-                             System.out.println(Arrays.toString(fields));
+                             switch(fields[0])
+                             {
+                                 case "JP":
+                                    JefeDePractica jp= new JefeDePractica();
+                                    jp.setTelefono(fields[4]);
+                                    jp.setApellido(fields[3]);
+                                    jp.setCodigo(fields[1]);
+                                    jp.setDepartamento(fields[6]);
+                                    jp.setNombre(fields[2]);
+                                    jp.setAnexo(Integer.parseInt(fields[5]));                              
+                                    dt.agregar(jp); 
+                                     break;
+                                 case "Profesor":
+                                     Profesor profesor= new Profesor();
+                                    profesor.setAnexo(Integer.parseInt(fields[5]));
+                                    profesor.setApellido(fields[3]);
+                                    profesor.setCodigo(fields[1]);
+                                    profesor.setDepartamento(fields[6]);
+                                    profesor.setFacultad(fields[7]);
+                                    profesor.setNombre(fields[2]);
+                                    profesor.setTelefono(fields[4]);
+                                    dt.agregar(profesor);
+                                    break;
+                                 case "PA":
+                                     Administrativo admin= new Administrativo();
+                                    admin.setAnexo(Integer.parseInt(fields[5]));
+                                    admin.setApellido(fields[3]);
+                                    admin.setCargo(fields[7]);
+                                    admin.setTelefono(fields[4]);
+                                    admin.setCodigo(fields[1]);
+                                    admin.setDepartamento(fields[6]);
+                                    admin.setNombre(fields[2]);
+                                    dt.agregar(admin);
+                                    break;
+                                 default:
+                                     break;
+                             }
+                             
 
                              line = br.readLine();
                           }
+                          
 
                        } catch (Exception e) {
                          // ...
@@ -102,7 +142,7 @@ public class Lab1Appocalipsis {
                             profesor.setDepartamento(Departamento);
                             profesor.setFacultad(facultad);
                             profesor.setNombre(nombre);
-                            profesor.setAnexo(anexo);
+                            profesor.setTelefono(Telefono);
                             dt.agregar(profesor);
                         }
                         else if(aux2.equalsIgnoreCase("J"))
@@ -117,7 +157,7 @@ public class Lab1Appocalipsis {
                             jp.setDepartamento(Departamento);
                             jp.setEgreso(egreso);
                             jp.setNombre(nombre);
-                            jp.setAnexo(anexo);
+                            jp.setTelefono(Telefono);
                             dt.agregar(jp);                           
                         }
                         else
@@ -131,8 +171,8 @@ public class Lab1Appocalipsis {
                             instructor.setCodigo(codigo);
                             instructor.setDepartamento(Departamento);
                             instructor.setCiclo(ciclo);
+                            instructor.setTelefono(Telefono);
                             instructor.setNombre(nombre);
-                            instructor.setAnexo(anexo);
                             dt.agregar(instructor);
                         }
                         
@@ -145,10 +185,10 @@ public class Lab1Appocalipsis {
                         admin.setAnexo(anexo);
                         admin.setApellido(apellido);
                         admin.setCargo(cargo);
+                        admin.setTelefono(Telefono);
                         admin.setCodigo(codigo);
                         admin.setDepartamento(Departamento);
                         admin.setNombre(nombre);
-                        admin.setAnexo(anexo);
                         dt.agregar(admin);
                     }
                     break;
