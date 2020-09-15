@@ -226,8 +226,9 @@ public class Lab1Appocalipsis {
                 }
                 case "4":
                 {
-                    try (FileWriter writer = new FileWriter("escritura.csv"))
+                    try
                     {
+                        FileWriter writer = new FileWriter("escritura.csv");
                         BufferedWriter bf = new BufferedWriter(writer);
                         for (Usuario i : dt.getLista()) 
                         {
@@ -282,6 +283,7 @@ public class Lab1Appocalipsis {
                 {
                     try
                     {
+                        //El 5 se esta conciderando opcion para salir
                         int num= Integer.parseInt(a);
                         System.out.println("Opcion erronea");
                     }catch(NumberFormatException e)
