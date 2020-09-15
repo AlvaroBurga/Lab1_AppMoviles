@@ -10,6 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author Alvaro
+ * hola Alvarillo
  */
 public class Plantilla {
     
