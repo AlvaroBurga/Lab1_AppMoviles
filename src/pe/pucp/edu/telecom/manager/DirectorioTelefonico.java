@@ -5,11 +5,19 @@
  */
 package pe.pucp.edu.telecom.manager;
 
+import java.util.ArrayList;
+import pe.pucp.edu.telecom.entity.base.Usuario;
+
 /**
  *
  * @author Alvaro
  */
 public class DirectorioTelefonico {
+    ArrayList<Usuario> lista;
     
+    public void agregar(Usuario usuario)
+    {
+        this.lista.add(usuario);
+    }
     
 }

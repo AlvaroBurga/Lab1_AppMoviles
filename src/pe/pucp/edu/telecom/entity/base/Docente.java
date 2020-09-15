@@ -10,7 +10,7 @@ package pe.pucp.edu.telecom.entity.base;
  *
  * @author Alvaro
  */
-public class Docente extends Usuario{
+public abstract class Docente extends Usuario{
     private int año;
     private int cursos;
 
