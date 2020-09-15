@@ -22,11 +22,11 @@ public class Lab1Appocalipsis {
        boolean end = false;
        while(!end)
        {
-            System.out.println("Opcion 1: ");
-            System.out.println("Opcion 2: ");
-            System.out.println("Opcion 3: ");
-            System.out.println("Opcion 4: ");
-            System.out.println("Opcion 5: ");
+            System.out.println("Opcion 1: Leer datos");
+            System.out.println("Opcion 2: Agregar usuario");
+            System.out.println("Opcion 3: Buscar usuario");
+            System.out.println("Opcion 4: Escribir Directorio");
+            System.out.println("Opcion 5: Salir");
             System.out.print("Escoja su opcion: ");
             String a=sc.nextLine();
             switch(a)
@@ -50,11 +50,19 @@ public class Lab1Appocalipsis {
                 }
                 case "5":
                 {
+                    end=true;
                     break;
                 }
                 default:
                 {
-                    end=true;
+                    try
+                    {
+                        int num= Integer.parseInt(a);
+                        System.out.println("Opcion erronea");
+                    }catch(NumberFormatException e)
+                    {
+                        System.out.println("Por favor ingrese un numero");
+                    }
                 }
              }
     
