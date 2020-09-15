@@ -1,7 +1,4 @@
-package lab1appocalipsis;
-
-
-import lab1appocalipsis.Usuario;
+package pe.pucp.edu.telecom.entity.base;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

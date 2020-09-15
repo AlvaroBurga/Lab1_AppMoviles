@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab1appocalipsis;
+package pe.pucp.edu.telecom.entity.base;
 
 /**
  *
  * @author Alvaro
  */
-public class Usuario {
+public abstract class Usuario {
     private String codigo;
     private String nombre;
     private String apellido;
