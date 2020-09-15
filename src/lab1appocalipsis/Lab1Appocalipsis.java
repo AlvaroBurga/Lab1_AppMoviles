@@ -18,12 +18,17 @@ public class Lab1Appocalipsis {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Scanner sc= new Scanner(System.in);
+       Scanner sc= new Scanner(System.in);
        boolean end = false;
-       while(true)
+       while(!end)
        {
+            System.out.println("Opcion 1: ");
+            System.out.println("Opcion 2: ");
+            System.out.println("Opcion 3: ");
+            System.out.println("Opcion 4: ");
+            System.out.println("Opcion 5: ");
+            System.out.print("Escoja su opcion: ");
             String a=sc.nextLine();
-            System.out.println(a);
             switch(a)
             {
                 case "1":
