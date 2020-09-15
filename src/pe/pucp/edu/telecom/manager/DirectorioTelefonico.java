@@ -13,7 +13,7 @@ import pe.pucp.edu.telecom.entity.base.Usuario;
  * @author Alvaro
  */
 public class DirectorioTelefonico {
-    private ArrayList<Usuario> lista;
+    private ArrayList<Usuario> lista= new ArrayList<>();
     
     public void agregar(Usuario usuario)
     {
