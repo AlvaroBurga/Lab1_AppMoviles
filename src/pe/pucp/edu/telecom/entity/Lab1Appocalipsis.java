@@ -5,6 +5,11 @@
  */
 package pe.pucp.edu.telecom.entity;
 
+import com.opencsv.CSVReader;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 import pe.pucp.edu.telecom.entity.base.Usuario;
 import pe.pucp.edu.telecom.manager.DirectorioTelefonico;
@@ -18,7 +23,7 @@ public class Lab1Appocalipsis {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
        Scanner sc= new Scanner(System.in);
        boolean end = false;
@@ -36,6 +41,25 @@ public class Lab1Appocalipsis {
             {
                 case "1":
                 {
+                    
+                    String SEPARATOR=",";
+
+                       BufferedReader br = null;
+
+                       try {
+
+                          br =new BufferedReader(new FileReader("C:\\Users\\a2015\\Documents\\NetBeansProjects\\Lab1_AppMoviles\\csv\\directorio_pucp.csv"));
+                          String line = br.readLine();
+                          while (null!=line) {
+                             String [] fields = line.split(SEPARATOR);
+                             System.out.println(Arrays.toString(fields));
+
+                             line = br.readLine();
+                          }
+
+                       } catch (Exception e) {
+                         // ...
+                       } 
                     break;
                 }
                 case "2":
