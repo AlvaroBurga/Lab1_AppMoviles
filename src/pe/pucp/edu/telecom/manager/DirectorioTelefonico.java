@@ -13,11 +13,25 @@ import pe.pucp.edu.telecom.entity.base.Usuario;
  * @author Alvaro
  */
 public class DirectorioTelefonico {
-    ArrayList<Usuario> lista;
+    private ArrayList<Usuario> lista;
     
     public void agregar(Usuario usuario)
     {
-        this.lista.add(usuario);
+        this.getLista().add(usuario);
+    }
+
+    /**
+     * @return the lista
+     */
+    public ArrayList<Usuario> getLista() {
+        return lista;
+    }
+
+    /**
+     * @param lista the lista to set
+     */
+    public void setLista(ArrayList<Usuario> lista) {
+        this.lista = lista;
     }
     
 }

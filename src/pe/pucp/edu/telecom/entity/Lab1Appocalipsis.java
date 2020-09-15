@@ -9,7 +9,9 @@ import com.opencsv.CSVReader;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import pe.pucp.edu.telecom.entity.base.Usuario;
 import pe.pucp.edu.telecom.manager.DirectorioTelefonico;
@@ -153,6 +155,21 @@ public class Lab1Appocalipsis {
                 {
                     System.out.println("Elija su palabra a buscar: ");
                     String palabra = sc.nextLine();
+                    ArrayList<Usuario> resultados = new ArrayList<>();
+                    for(Usuario i : dt.getLista())
+                    {
+                        if (i.getNombre().contains(palabra) || i.getApellido().contains(palabra))
+                        {
+                            resultados.add(i);
+                        }
+                    }
+                    
+                    //Ordenar la lista
+                    
+                    for(Usuario i : resultados)
+                    {
+                        System.out.println(i.getNombre() + " " +i.getApellido());
+                    }
                     
                     
                     break;
